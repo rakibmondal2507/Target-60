@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+      Student Profile Generator  
+    </title>
+</head>
+<body style="display: flex; height: 100vh; align-items: center; justify-content:  center; flex-direction: column;">
+    
+    <form id="userForm">
+        <label for="name">name: 
+            <input type="text" name="name" id="name">
+        </label>
+        <br>
+        <label for="age">age: 
+            <input type="number" name="age" id="age">
+        </label>
+        <br>
+        <label for="course">Course: 
+            <input type="text" name="course" id="course">
+        </label>
+        <br>
+        <label for="city">City: 
+            <input type="text" name="city" id="city">
+        </label>
+         <button type="submit">Submit Data</button>
+    </form>
+
+    <div style="margin: 20px;" id="output-container">
+        <br><br>
+    <ul id="dataDisplay"></ul>
+
+    </div>
+
+    <Script>
+    const form = document.getElementById("userForm")
+    
+    form.addEventListener('submit', (e)=>{
+        e.preventDefault()
+
+        const formData = new FormData(form)
+        const data = Object.fromEntries(formData)
+
+        // console.log(data.name)
+        // console.log(formData)
+        // console.log(formData.get('name'))
+      const output =  document.getElementById("output-container")
+      output.textContent = `Welcome ${data.name}, Your data is successfully saved`;
+
+      const dataDisplay = document.getElementById("dataDisplay")
+      dataDisplay.innerHtml = ''
+      formData.forEach((value, key) => {
+        const listItem = document.createElement('li')
+        listItem.textContent = `${key}: ${value}`
+        dataDisplay.appendChild(listItem)
+      })
+
+    })
+      
+    </Script>
+</body>
+</html>
