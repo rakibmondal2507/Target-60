@@ -1,5 +1,10 @@
-const personal = { name: "Rakib", city: "Kolkata" };
-// const academic = { degree: "CSE", year: 3 };
+function example(first, ...rest) {
+//   console.log(rest); // an array
+// }
+// example(1, 2, 3, 4); // rest = [2, 3, 4]
 
-// const profile = {...personal, ...academic}
-// console.log(profile)
+// // SPREAD — expanding "arr" out
+// const arr = [2, 3, 4];
+// const newArr = [1, ...arr];
+// console.log(newArr); // [1, 2, 3, 4]
+
